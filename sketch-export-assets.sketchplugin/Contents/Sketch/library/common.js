@@ -115,7 +115,7 @@ com.geertwille = {
             sliceName = [slice name];
 
         if (this.type == "android") {
-            sliceName = sliceName.trim().toLowerCase().replace(/\s/,'_').replace(/-+/g,'_').replace(/[^0-9a-z_]/,'');
+            sliceName = sliceName.trim().toLowerCase().split('/').join('_').replace(/\s/,'_').replace(/-+/g,'_').replace(/[^0-9a-z_]/,'');
         }
 
         for (var i = 0; i < this.factors.length; i++) {
@@ -145,9 +145,9 @@ com.geertwille = {
                fileName = this.baseDir + name + "/" + prefix + sliceName + suffix + ".png";
            } else {
                if (this.baseDir.indexOf('/res') == -1 && this.type == "android") {
-                   fileName = this.baseDir + "/assets/android/res/" + name + "/" + prefix + sliceName + suffix + ".png";
+                   fileName = this.baseDir + "/android/" + name + "/" + prefix + sliceName + suffix + ".png";
                } else {
-                   fileName = this.baseDir + "/assets/" + this.type + name + "/" + prefix + sliceName + suffix + ".png";
+                   fileName = this.baseDir + "/" + this.type + name + "/" + prefix + sliceName + suffix + ".png";
                }
            }
 
